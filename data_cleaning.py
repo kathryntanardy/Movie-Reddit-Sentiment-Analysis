@@ -4,7 +4,7 @@ from langdetect import detect, LangDetectException
 
 
 data = pd.read_csv('barbie.csv')
-ß
+
 #Remove columns that contained removed comments ([removed] or [deleted])
 data = data[data['comment_body'] != '[removed]']
 data = data[data['comment_body'] != '[deleted]']
