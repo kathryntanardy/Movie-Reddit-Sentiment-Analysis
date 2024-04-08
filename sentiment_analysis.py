@@ -3,6 +3,7 @@ import string
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
+import matplotlib.pyplot as plt
 
 
 def sentiment_analyze(sentiment_text):
@@ -18,7 +19,7 @@ def get_words(tokenized, final_words):
 
 def main():
     # Read Data
-    data = pd.read_csv("barbie_cleaned.csv")
+    data = pd.read_csv("barbie.csv")
 
     # Convert to lower case
     data['comment_body'] = data['comment_body'].apply(lambda x: x.lower())
@@ -33,6 +34,8 @@ def main():
     final_words = []
     tokenized_data['tokenized'].apply(lambda x: get_words(x, final_words))
 
+   
+    print(final_words)
 
 
 if __name__ == '__main__':
