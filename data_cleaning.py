@@ -4,13 +4,24 @@ from langdetect import detect, LangDetectException
 import string
 import re
 
-data = pd.read_csv('/Users/kathryntanardy/Desktop/movie-ratings/data_scraped/ant_man_comments.csv')
+filepath = ['/Users/kathryntanardy/Desktop/movie-ratings/data_scraped/ant_man_comments.csv',
+            '/Users/kathryntanardy/Desktop/movie-ratings/data_scraped/black_panther_comments.csv',
+            '/Users/kathryntanardy/Desktop/movie-ratings/data_scraped/guardians_of_the_galaxy_comments.csv',
+            '/Users/kathryntanardy/Desktop/movie-ratings/data_scraped/madame_web_comments.csv',
+            '/Users/kathryntanardy/Desktop/movie-ratings/data_scraped/mission_impossible_comments.csv',
+            '/Users/kathryntanardy/Desktop/movie-ratings/data_scraped/spider_verse_comments.csv',
+            '/Users/kathryntanardy/Desktop/movie-ratings/data_scraped/the_marvels_comments.csv'
+]
 
-data['comment'] = data['comment'].apply(lambda x: x.lower())
-print(data)
-# Remove columns that contained removed comments ([removed] or [deleted])
-data = data[data['comment'] != '[removed]']
-data = data[data['comment'] != '[deleted]']
+outputs = [
+    'ant_man_clean.csv',
+    'black_panther_clean.csv',
+    'guardians_of_the_galaxy_clean.csv',
+    'hunger_games_clean.csv',
+    'madame_web_clean.csv',
+    'spider_verse_clean.csv',
+    'the_marvels_clean.csv'
+]
 
 # Remove words that start with https:// (to remove image files or sublinks )
 def remove_https_words(text):
@@ -44,17 +55,50 @@ def remove_miscellaneous(string):
                                "]+", flags=re.UNICODE)
     # Remove emojis from the string
     return miscellaneous_content.sub(r'', string)
-# Remove columns that contains img, emoji, other miscellaneous content
-data['comment'] = data['comment'].apply(lambda x: remove_https_words(x))
-data['comment'] = data['comment'].apply(lambda x: remove_miscellaneous(x))
-print(data)
 
-# Remove punctuations
-data['comment'] = data['comment'].apply(lambda x: x.translate(str.maketrans('','', string.punctuation)))
+def remove_curse_withinwords(text):
+    pattern = r'\b\S*shit\S*\b'
 
-#Remove curse words 
-data['comment'] = data['comment'].apply(lambda x: profanity.censor(x, ''))
+    # Replace the matched words with an empty string
+    cleaned_text = re.sub(pattern, '', text)
+    return cleaned_text
 
-# Export to csv
-data.to_csv('antman.csv', index=False)
+def remove_curse_withinwords2(text):
+    pattern = r'\b\S*fuck\S*\b'
+
+    # Replace the matched words with an empty string
+    cleaned_text = re.sub(pattern, '', text)
+    return cleaned_text
+
+def remove_curse_withinwords3(text):
+    pattern = r'\b\S*bitch\S*\b'
+    #Replace the matched words with an empty string
+    cleaned_text = re.sub(pattern, '', text)
+    return cleaned_text
+
+
+for filepath, output in zip(filepath, outputs):
+    data = pd.read_csv(filepath)
+    data['comment'] = data['comment'].apply(lambda x: x.lower())
+    # Remove columns that contained removed comments ([removed] or [deleted])
+    data = data[data['comment'] != '[removed]']
+    data = data[data['comment'] != '[deleted]']
+
+    # Remove columns that contains img, emoji, other miscellaneous content
+    data['comment'] = data['comment'].apply(lambda x: remove_https_words(x))
+    data['comment'] = data['comment'].apply(lambda x: remove_miscellaneous(x))
+
+    # Remove punctuations
+    data['comment'] = data['comment'].apply(lambda x: x.translate(str.maketrans('','', string.punctuation)))
+
+    #Remove curse words 
+    data['comment'] = data['comment'].apply(lambda x: profanity.censor(x, ''))
+
+    data['comment'] = data['comment'].apply(lambda x: remove_curse_withinwords(x))
+    data['comment'] = data['comment'].apply(lambda x: remove_curse_withinwords2(x))
+    data['comment'] = data['comment'].apply(lambda x: remove_curse_withinwords3(x))
+
+    # Export to csv
+    data.to_csv(output, index=False)
+
 
