@@ -1,32 +1,56 @@
 from better_profanity import profanity
 import pandas as pd
 from langdetect import detect, LangDetectException
+from nltk.tokenize import word_tokenize
+from nltk.tag import pos_tag
+from nltk.stem import PorterStemmer
+from nltk.stem import WordNetLemmatizer
+
+data = pd.read_csv('/Users/kathryntanardy/Desktop/movie-ratings/data_scraped/ant_man_comments.csv')
+
+data['comment'] = data['comment'].apply(lambda x: x.lower())
+print(data)
+# Remove columns that contained removed comments (
+# [removed] or [deleted])
+data = data[data['comment'] != '[removed]']
+data = data[data['comment'] != '[deleted]']
+
+# Remove columns that contains img
+data = data[~data['comment'].str.contains('.img')]
+data = data[~data['comment'].str.contains('.jpg')]
+data = data[~data['comment'].str.contains('.jpeg')]
+data = data[~data['comment'].str.contains('.png')]
+data = data[~data['comment'].str.contains('.gif')]
+# print(data)
 
 
-data = pd.read_csv('barbie.csv')
+data['tokens'] = data['comment'].apply(lambda x: word_tokenize(x, "english"))
+# print(data)
+# print(data['tokens'])
 
-#Remove columns that contained removed comments ([removed] or [deleted])
-data = data[data['comment_body'] != '[removed]']
-data = data[data['comment_body'] != '[deleted]']
+# data['pos_tags'] = data['tokens'].apply(pos_tag)
 
-data = data[~data['comment_body'].str.contains('.img')]
-data = data[~data['comment_body'].str.contains('.jpg')]
-data = data[~data['comment_body'].str.contains('.jpeg')]
-data = data[~data['comment_body'].str.contains('.png')]
-data = data[~data['comment_body'].str.contains('.gif')]
+stemmer = PorterStemmer()
+data['stemmed'] = data['tokens'].apply(lambda x: [stemmer.stem(token) for token in x])
+# print(data['stemmed']) 
 
-#Remove columns that contain language aside from english
-def english_sentence(text):
-    try:
-        return detect(text) == 'en'
-    except LangDetectException:
-        return False
+lemmatizer = WordNetLemmatizer()
+data['lemmatized'] = data['tokens'].apply(lambda x: [lemmatizer.lemmatize(token) for token in x])
 
-data['english'] = data['comment_body'].apply(english_sentence)
-data = data[data['english']]
-data = data.drop(columns=['english'])
 
-#Remove curse word from the data 
-data['comment_body'] = data['comment_body'].apply(lambda x: profanity.censor(x, ''))
-data.to_csv('barbie_cleaned.csv', index=False)
+print(data)
+# #Remove columns that contain language aside from english
+# def english_sentence(text):
+#     try:
+#         return detect(text) == 'en'
+#     except LangDetectException:
+#         return False
+
+# data['english'] = data['comment_body'].apply(english_sentence)
+# data = data[data['english']]
+# data = data.drop(columns=['english'])
+
+# #Remove curse word from the data 
+# data['comment_body'] = data['comment_body'].apply(lambda x: profanity.censor(x, ''))
+data.to_csv('example.csv', index=False)
 
