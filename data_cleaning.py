@@ -10,7 +10,7 @@ filepath = ['./data_scraped/ant_man_comments.csv',
             './data_scraped/dune2_comments.csv',
             './data_scraped/guardians_of_the_galaxy_comments.csv',
             './data_scraped/hunger_games_comments.csv',
-            './data_scraped/john_wick_4_comments.csv'
+            './data_scraped/john_wick_4_comments.csv',
             './data_scraped/madame_web_comments.csv',
             './data_scraped/mission_impossible_comments.csv',
             './data_scraped/oppenheimer_comments.csv',
@@ -26,7 +26,7 @@ outputs = ['ant_man_clean.csv',
            'john_wick_4_clean.csv',
            'madame_web_clean.csv',
            'mission_impossible_clean.csv'
-           'oppenheimer_clean.csv'
+           'oppenheimer_clean.csv',
            'spider_verse_clean.csv',
            'the_marvels_clean.csv']
 
