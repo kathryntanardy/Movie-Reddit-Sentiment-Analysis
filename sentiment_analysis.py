@@ -23,6 +23,8 @@ def analyze_data(comments_data, data_output, count_output):
     # Read Data
     data = pd.read_csv(comments_data)
 
+    print(stopwords)
+
     # -------------------- Sentiment Analyze --------------------
     data['comment'] = data['comment'].astype(str)
     data['sentiment'] = data['comment'].apply(lambda x: sentiment_analyze(x))
@@ -70,46 +72,44 @@ def analyze_data(comments_data, data_output, count_output):
 
 
 def main():
-    filepath = ['./cleaned_data/ant_man_comments.csv',
-            './cleaned_data/black_panther_comments.csv',
-            './cleaned_data/guardians_of_the_galaxy_comments.csv',
-            './cleaned_data/madame_web_comments.csv',
-            './cleaned_data/mission_impossible_comments.csv',
-            './cleaned_data/spider_verse_comments.csv',
-            './cleaned_data/the_marvels_comments.csv',
-            './cleaned_data/barbie_comments.csv',
-            './cleaned_data/dune2_comments.csv',
-            './cleaned_data/oppenheimer_comments.csv'
-    ]
-
-    outputs = [
-        'ant_man_clean.csv',
-        'black_panther_clean.csv',
-        'guardians_of_the_galaxy_clean.csv',
-        'hunger_games_clean.csv',
-        'madame_web_clean.csv',
-        'spider_verse_clean.csv',
-        'the_marvels_clean.csv',
-        'barbie_clean.csv',
-        'dune2_clean.csv',
-        'oppenheimer_clean.csv'
-    ]
-
-    comments_data = ['./cleaned_data/ant_man_clean.csv',
-                     './cleaned_data/barbie_clean.csv',
-                     './cleaned_data/black_panther_clean.csv',
-                     './cleaned_data/dune2_clean.csv',
-                     './cleaned_data/guardians_of_the_galaxy_clean.csv',
-                     './cleaned_data/hunger_games_clean.csv',
-                     './cleaned_data/john_wick_4_clean.csv'
-                     './cleaned_data/madame_web_clean.csv',
-                     './cleaned_data/mission_impossible_clean.csv',
-                     './cleaned_data/oppenheimer_clean.csv',
-                     './cleaned_data/spider_verse_clean.csv',
-                     './cleaned_data/the_marvels_clean.csv']
+    comments_data = ['./cleaned_data/ant_man_comments.csv',
+                     './cleaned_data/barbie_comments.csv',
+                     './cleaned_data/black_panther_comments.csv',
+                     './cleaned_data/dune2_comments.csv',
+                     './cleaned_data/guardians_of_the_galaxy_comments.csv',
+                     './cleaned_data/hunger_games_comments.csv',
+                     './cleaned_data/john_wick_4_comments.csv'
+                     './cleaned_data/madame_web_comments.csv',
+                     './cleaned_data/mission_impossible_comments.csv',
+                     './cleaned_data/oppenheimer_comments.csv',
+                     './cleaned_data/spider_verse_comments.csv',
+                     './cleaned_data/the_marvels_comments.csv']
     
-    data_output = ['data_sentiment.csv']
-    count_output = ['count.csv']
+    data_output = ['./sentiment_data/ant_man_sentiment.csv',
+                   './sentiment_data/barbie_sentiment.csv',
+                   './sentiment_data/black_panther_sentiment.csv',
+                   './sentiment_data/dune2_sentiment.csv',
+                   './sentiment_data/guardians_of_the_galaxy_sentiment.csv',
+                   './sentiment_data/hunger_games_sentiment.csv',
+                   './sentiment_data/john_wick_4_sentiment.csv'
+                   './sentiment_data/madame_web_sentiment.csv',
+                   './sentiment_data/mission_impossible_sentiment.csv',
+                   './sentiment_data/oppenheimer_sentiment.csv',
+                   './sentiment_data/spider_verse_sentiment.csv',
+                   './sentiment_data/the_marvels_sentiment.csv']
+    
+    count_output = ['./sentiment_data/ant_man_count.csv',
+                    './sentiment_data/barbie_count.csv',
+                    './sentiment_data/black_panther_count.csv',
+                    './sentiment_data/dune2_count.csv',
+                    './sentiment_data/guardians_of_the_galaxy_count.csv',
+                    './sentiment_data/hunger_games_count.csv',
+                    './sentiment_data/john_wick_4_count.csv'
+                    './sentiment_data/madame_web_count.csv',
+                    './sentiment_data/mission_impossible_count.csv',
+                    './sentiment_data/oppenheimer_count.csv',
+                    './sentiment_data/spider_verse_count.csv',
+                    './sentiment_data/the_marvels_count.csv']
 
     for comments_file, data_file, count_file in zip(comments_data, data_output, count_output):
         analyze_data(comments_file, data_file, count_file)
