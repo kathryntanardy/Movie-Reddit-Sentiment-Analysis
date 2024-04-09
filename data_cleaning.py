@@ -4,13 +4,16 @@ from langdetect import detect, LangDetectException
 import string
 import re
 
-filepath = ['/Users/kathryntanardy/Desktop/movie-ratings/data_scraped/ant_man_comments.csv',
-            '/Users/kathryntanardy/Desktop/movie-ratings/data_scraped/black_panther_comments.csv',
-            '/Users/kathryntanardy/Desktop/movie-ratings/data_scraped/guardians_of_the_galaxy_comments.csv',
-            '/Users/kathryntanardy/Desktop/movie-ratings/data_scraped/madame_web_comments.csv',
-            '/Users/kathryntanardy/Desktop/movie-ratings/data_scraped/mission_impossible_comments.csv',
-            '/Users/kathryntanardy/Desktop/movie-ratings/data_scraped/spider_verse_comments.csv',
-            '/Users/kathryntanardy/Desktop/movie-ratings/data_scraped/the_marvels_comments.csv'
+filepath = ['./data_scraped/ant_man_comments.csv',
+            './data_scraped/black_panther_comments.csv',
+            './data_scraped/guardians_of_the_galaxy_comments.csv',
+            './data_scraped/madame_web_comments.csv',
+            './data_scraped/mission_impossible_comments.csv',
+            './data_scraped/spider_verse_comments.csv',
+            './data_scraped/the_marvels_comments.csv',
+            './data_scraped/barbie_comments.csv',
+            './data_scraped/dune2_comments.csv',
+            './data_scraped/oppenheimer_comments.csv'
 ]
 
 outputs = [
@@ -20,7 +23,10 @@ outputs = [
     'hunger_games_clean.csv',
     'madame_web_clean.csv',
     'spider_verse_clean.csv',
-    'the_marvels_clean.csv'
+    'the_marvels_clean.csv',
+    'barbie_clean.csv',
+    'dune2_clean.csv',
+    'oppenheimer_clean.csv'
 ]
 
 # Remove words that start with https:// (to remove image files or sublinks )
