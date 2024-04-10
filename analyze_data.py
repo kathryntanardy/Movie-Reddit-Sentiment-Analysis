@@ -17,18 +17,17 @@ reddit_filepath = ['./sentiment_data/ant_man_sentiment.csv',
                    './sentiment_data/the_marvels_sentiment.csv']
 
 imdb_filepath = ['./imdb/ant_man_imdb.csv',
-                 './imdb/barbieimdb.csv',
+                 './imdb/barbie_imdb.csv',
                  './imdb/black_panther_imdb.csv',
                  './imdb/dune2_imdb.csv',
                  './imdb/guardians_of_the_galaxy_imdb.csv',
-                 './imdb/hunger_games_imdb_imdb.csv',
+                 './imdb/hunger_games_imdb.csv',
                  './imdb/john_wick_4_imdb.csv',
                  './imdb/madame_web_imdb.csv',
                  './imdb/mission_impossible_imdb.csv',
                  './imdb/oppenheimer_imdb.csv',
                  './imdb/spider_verse_imdb.csv',
                  './imdb/the_marvels_imdb.csv']
-
 
 for imdb, reddit in zip(imdb_filepath, reddit_filepath):
     print("\n")
@@ -38,11 +37,12 @@ for imdb, reddit in zip(imdb_filepath, reddit_filepath):
     imdb_rates = pd.read_csv(imdb)
     reddit_rates = pd.read_csv(reddit)
 
+    print(imdb_rates)
     reddit_rates = reddit_rates.drop(labels=['comment', 'date', 'sentiment', 'negative', 'neutral', 'positive'], axis=1)
     print(reddit_rates)
 
-    equal_variance = levene(imdb, reddit).pvalue
-
+    equal_variance = levene(imdb_rates['Rating'], reddit_rates['rating']).pvalue
+    print(equal_variance)
     if(equal_variance < 0.05):
         print("Data passed the Levene's test with p-value: ", equal_variance)
         ttest = ttest_ind(imdb_rates, reddit_rates)
@@ -50,3 +50,4 @@ for imdb, reddit in zip(imdb_filepath, reddit_filepath):
         print("Data did not pass the Levene's test with p-value: ", equal_variance)
         ttest = ttest_ind(imdb_rates, reddit_rates, equal_var = False)
 
+    print("The p-value of the ttest conducted is: ", ttest.pvalue)
