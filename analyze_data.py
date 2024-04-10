@@ -37,12 +37,19 @@ for imdb, reddit in zip(imdb_filepath, reddit_filepath):
     imdb_rates = pd.read_csv(imdb)
     reddit_rates = pd.read_csv(reddit)
 
-    print(imdb_rates)
+    #Remove irrelevant columns from the reddit_rates data
     reddit_rates = reddit_rates.drop(labels=['comment', 'date', 'sentiment', 'negative', 'neutral', 'positive'], axis=1)
-    print(reddit_rates)
 
+    imdb_mean = imdb_rates['Rating'].mean()
+    reddit_mean = reddit_rates['rating'].mean()
+    print("IMDB: ", imdb_mean)
+    print("Reddit: ", reddit_mean)
+
+    #Check whether both data have an equal variance
     equal_variance = levene(imdb_rates['Rating'], reddit_rates['rating']).pvalue
     print(equal_variance)
+    
+    #Handle statistical T-test based on the result of the levene test
     if(equal_variance < 0.05):
         print("Data passed the Levene's test with p-value: ", equal_variance)
         ttest = ttest_ind(imdb_rates, reddit_rates)
@@ -50,4 +57,5 @@ for imdb, reddit in zip(imdb_filepath, reddit_filepath):
         print("Data did not pass the Levene's test with p-value: ", equal_variance)
         ttest = ttest_ind(imdb_rates, reddit_rates, equal_var = False)
 
+    #Output the p-value of the statistical test 
     print("The p-value of the ttest conducted is: ", ttest.pvalue)
