@@ -40,18 +40,18 @@ movie_names = ['Barbie',
                'The Hunger Games: The Ballad of Songbirds & Snakes',
                'Black Panther: Wakanda Forever']
 
-outputs = ['barbie_imdb.csv',
-          'oppenheimer_imdb.csv',
-          'dune2_imdb.csv',
-          'the_marvels_imdb.csv',
-          'john_wick_4_imdb.csv',
-          'madame_web_imdb.csv',
-          'spider_verse_imdb.csv',
-          'mission_impossible_imdb.csv',
-          'guardians_of_the_galaxy_imdb.csv',
-          'ant_man_imdb.csv',
-          'hunger_games_imdb.csv',
-          'black_panther_imdb.csv'
+outputs = ['./imdb/barbie_imdb.csv',
+          './imdb/oppenheimer_imdb.csv',
+          './imdb/dune2_imdb.csv',
+          './imdb/the_marvels_imdb.csv',
+          './imdb/john_wick_4_imdb.csv',
+          './imdb/madame_web_imdb.csv',
+          './imdb/spider_verse_imdb.csv',
+          './imdb/mission_impossible_imdb.csv',
+          './imdb/guardians_of_the_galaxy_imdb.csv',
+          './imdb/ant_man_imdb.csv',
+          './imdb/hunger_games_imdb.csv',
+          './imdb/black_panther_imdb.csv'
 ]
 
 for movie, output in zip(movie_names, outputs):

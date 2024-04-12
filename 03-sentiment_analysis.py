@@ -42,7 +42,7 @@ def remove_words(text, words_to_remove):
     return cleaned_text
 
 
-def analyze_data(comments_data, data_output, count_output):
+def analyze_data(comments_data, data_output):
     # Read Data
     data = pd.read_csv(comments_data)
 
@@ -51,28 +51,28 @@ def analyze_data(comments_data, data_output, count_output):
     data['comment'] = data['comment'].apply(lambda x: remove_words(x, stopwords.words('english')))
     new_data = data.copy(deep=True)
 
-    # -------------------- Sentiment Analyze --------------------
-    data['sentiment'] = data['comment'].apply(lambda x: sentiment_analyze(x))
+    # # -------------------- Sentiment Analyze --------------------
+    # data['sentiment'] = data['comment'].apply(lambda x: sentiment_analyze(x))
 
-    # Get Positive, Neutral, Negative columns
-    data['negative'] = data['sentiment'].apply(lambda x: x.get('neg'))
-    data['neutral'] = data['sentiment'].apply(lambda x: x.get('neu'))
-    data['positive'] = data['sentiment'].apply(lambda x: x.get('pos'))
+    # # Get Positive, Neutral, Negative columns
+    # data['negative'] = data['sentiment'].apply(lambda x: x.get('neg'))
+    # data['neutral'] = data['sentiment'].apply(lambda x: x.get('neu'))
+    # data['positive'] = data['sentiment'].apply(lambda x: x.get('pos'))
 
-    # Give ratings to every comment
-    data['rating'] = ((data['positive']) + (data['neutral'] / 2)) * 10
-    # data['rating'] = (data['positive'] / (data['positive'] + data['negative'])) * 10
+    # # Give ratings to every comment
+    # data['rating'] = ((data['positive']) + (data['neutral'] / 2)) * 10
+    # # data['rating'] = (data['positive'] / (data['positive'] + data['negative'])) * 10
 
-    # Average
-    print("Before Removing neu words:")
-    average_neg = data['negative'].mean()
-    average_neu = data['neutral'].mean()
-    average_pos = data['positive'].mean()
-    average_rating = data['rating'].mean()
-    print("average negative =", average_neg)
-    print("average neutral =", average_neu)
-    print("average positive =", average_pos)
-    print("average rating =", average_rating)
+    # # Average
+    # print("Before Removing neu words:")
+    # average_neg = data['negative'].mean()
+    # average_neu = data['neutral'].mean()
+    # average_pos = data['positive'].mean()
+    # average_rating = data['rating'].mean()
+    # print("average negative =", average_neg)
+    # print("average neutral =", average_neu)
+    # print("average positive =", average_pos)
+    # print("average rating =", average_rating)
 
 
     # -------------------- Get sentiment words --------------------
@@ -80,7 +80,8 @@ def analyze_data(comments_data, data_output, count_output):
     tokenized_data['tokenized'] = tokenized_data['comment'].apply(lambda x: word_tokenize(x, "english"))  
 
     # Drop columns
-    tokenized_data = tokenized_data.drop(labels=['comment', 'date', 'sentiment', 'negative', 'neutral', 'positive'], axis=1)
+    # tokenized_data = tokenized_data.drop(labels=['comment', 'date', 'sentiment', 'negative', 'neutral', 'positive'], axis=1)
+    tokenized_data = tokenized_data.drop(labels=['comment', 'date'], axis=1)
 
     # Explode
     tokenized_data = tokenized_data.explode('tokenized')
@@ -105,7 +106,7 @@ def analyze_data(comments_data, data_output, count_output):
 
 
     # -------------------- Sentiment Analyze --------------------
-    print("\nAfter:")
+    # print("\nAfter:")
     data['comment'] = data['comment'].apply(lambda x: remove_words(x, neu_words))
     new_data['sentiment'] = new_data['comment'].apply(lambda x: sentiment_analyze(x))
 
@@ -162,24 +163,12 @@ data_output = ['./sentiment_data/ant_man_sentiment.csv',
                 './sentiment_data/spider_verse_sentiment.csv',
                 './sentiment_data/the_marvels_sentiment.csv']
 
-count_output = ['./sentiment_data/ant_man_count.csv',
-                './sentiment_data/barbie_count.csv',
-                './sentiment_data/black_panther_count.csv',
-                './sentiment_data/dune2_count.csv',
-                './sentiment_data/guardians_of_the_galaxy_count.csv',
-                './sentiment_data/hunger_games_count.csv',
-                './sentiment_data/john_wick_4_count.csv'
-                './sentiment_data/madame_web_count.csv',
-                './sentiment_data/mission_impossible_count.csv',
-                './sentiment_data/oppenheimer_count.csv',
-                './sentiment_data/spider_verse_count.csv',
-                './sentiment_data/the_marvels_count.csv']
 
 
-for comments_file, data_file, count_file in zip(cleaned_data, data_output, count_output):
+for comments_file, data_file in zip(cleaned_data, data_output):
     print("\n")
     print(comments_file)
     print("-----------------------------------")
-    analyze_data(comments_file, data_file, count_file)
+    analyze_data(comments_file, data_file)
     print(comments_file + " SUCCESS") 
     print("\n")

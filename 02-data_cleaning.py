@@ -72,26 +72,28 @@ def remove_curse_withinwords3(text):
 #             './data_scraped/spider_verse_comments.csv',
 #             './data_scraped/the_marvels_comments.csv']
 
-# outputs = ['ant_man_clean.csv',
-#            'barbie_clean.csv',
-#            'black_panther_clean.csv',
-#            'dune2_clean.csv',
-#            'guardians_of_the_galaxy_clean.csv',
-#            'hunger_games_clean.csv',
-#            'john_wick_4_clean.csv',
-#            'madame_web_clean.csv',
-#            'mission_impossible_clean.csv'
-#            'oppenheimer_clean.csv',
-#            'spider_verse_clean.csv',
-#            'the_marvels_clean.csv']
+# outputs = ['./cleaned_data/ant_man_clean.csv',
+#            './cleaned_data/barbie_clean.csv',
+#            './cleaned_data/black_panther_clean.csv',
+#            './cleaned_data/dune2_clean.csv',
+#            './cleaned_data/guardians_of_the_galaxy_clean.csv',
+#            './cleaned_data/hunger_games_clean.csv',
+#            './cleaned_data/john_wick_4_clean.csv',
+#            './cleaned_data/madame_web_clean.csv',
+#            './cleaned_data/mission_impossible_clean.csv',
+#            './cleaned_data/oppenheimer_clean.csv',
+#            './cleaned_data/spider_verse_clean.csv',
+#            './cleaned_data/the_marvels_clean.csv']
 
 filepath = [
-            './data_scraped/oppenheimer_comments.csv',
-]
+            './data_scraped/spider_verse_comments.csv',
+            './data_scraped/the_marvels_comments.csv']
+
 
 outputs = [
-           './cleaned_data/oppenheimer_clean.csv',
-]
+           './cleaned_data/spider_verse_clean.csv',
+           './cleaned_data/the_marvels_clean.csv']
+
 
 for filepath, output in zip(filepath, outputs):
     data = pd.read_csv(filepath)
