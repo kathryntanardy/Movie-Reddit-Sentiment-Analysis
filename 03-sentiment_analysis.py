@@ -138,17 +138,17 @@ def analyze_data(comments_data, data_output):
 
 
 cleaned_data = ['./cleaned_data/ant_man_clean.csv',
-                    './cleaned_data/barbie_clean.csv',
-                    './cleaned_data/black_panther_clean.csv',
-                    './cleaned_data/dune2_clean.csv',
-                    './cleaned_data/guardians_of_the_galaxy_clean.csv',
-                    './cleaned_data/hunger_games_clean.csv',
-                    './cleaned_data/john_wick_4_clean.csv',
-                    './cleaned_data/madame_web_clean.csv',
-                    './cleaned_data/mission_impossible_clean.csv',
-                    './cleaned_data/oppenheimer_clean.csv',
-                    './cleaned_data/spider_verse_clean.csv',
-                    './cleaned_data/the_marvels_clean.csv']
+                './cleaned_data/barbie_clean.csv',
+                './cleaned_data/black_panther_clean.csv',
+                './cleaned_data/dune2_clean.csv',
+                './cleaned_data/guardians_of_the_galaxy_clean.csv',
+                './cleaned_data/hunger_games_clean.csv',
+                './cleaned_data/john_wick_4_clean.csv',
+                './cleaned_data/madame_web_clean.csv',
+                './cleaned_data/mission_impossible_clean.csv',
+                './cleaned_data/oppenheimer_clean.csv',
+                './cleaned_data/spider_verse_clean.csv',
+                './cleaned_data/the_marvels_clean.csv']
 
 data_output = ['./sentiment_data/ant_man_sentiment.csv',
                 './sentiment_data/barbie_sentiment.csv',
