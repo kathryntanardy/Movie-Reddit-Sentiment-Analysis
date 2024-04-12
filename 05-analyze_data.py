@@ -127,3 +127,5 @@ for imdb, reddit, plot in zip(imdb_filepath, reddit_filepath, plot):
     print("The p-value of the test conducted is: ", test.pvalue)
     if(test.pvalue < 0.05):
         print("Succesfully rejected Ho. Mean of the sentimental analysis rating is not equal to the mean of the IMDB data")
+    else:
+        print("No conclusion can be drawn from the statistical test")
