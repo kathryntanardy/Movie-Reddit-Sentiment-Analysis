@@ -19,7 +19,8 @@ url_array = ["https://www.reddit.com/r/movies/comments/155afzv/official_discussi
                 "https://www.reddit.com/r/movies/comments/1205lx8/official_discussion_john_wick_chapter_4_spoilers/",
                 "https://www.reddit.com/r/movies/comments/13878rl/official_discussion_guardians_of_the_galaxy_vol_3/",
                 "https://www.reddit.com/r/movies/comments/8wg5o3/official_discussion_ant_man_and_the_wasp_spoilers/",
-                "https://www.reddit.com/r/movies/comments/yrzhen/official_discussion_black_panther_wakanda_forever/"]
+                "https://www.reddit.com/r/movies/comments/yrzhen/official_discussion_black_panther_wakanda_forever/",
+                "https://www.reddit.com/r/movies/comments/17x5dqy/official_discussion_the_hunger_games_the_ballad/"]
 
 output_file_array = ["barbie_comments.csv",
                      "oppenheimer_comments.csv",
@@ -31,7 +32,8 @@ output_file_array = ["barbie_comments.csv",
                      "john_wick_4_comments.csv",
                      "guardians_of_the_galaxy_comments.csv",
                      "ant_man_comments.csv",
-                     "black_panther_comments.csv"]
+                     "black_panther_comments.csv",
+                     "hunger_games_comments.csv"]
 
 output_file_index = 0
 for url, output_file in zip(url_array, output_file_array):
