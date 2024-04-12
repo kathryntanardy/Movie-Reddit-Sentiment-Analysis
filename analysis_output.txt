@@ -1,0 +1,112 @@
+
+---------------------------------------------------------------------------------------------------------
+Ho: mean of the ratings of the Reddit sentimental analysis is equal to the mean of the ratings of IMDB
+---------------------------------------------------------------------------------------------------------
+
+
+./imdb/ant_man_imdb.csv and  ./sentiment_data/ant_man_sentiment.csv
+--------------------------------------------------
+Mean of the IMDB data:  5.952
+Mean of the Reddit data:  5.60538060624504
+Data is not normal, conducting Mann-Whitney U Test
+The p-value of the test conducted is:  2.1023504819332434e-06
+Succesfully rejected Ho. Mean of the sentimental analysis rating is not equal to the mean of the IMDB data
+
+
+./imdb/barbie_imdb.csv and  ./sentiment_data/barbie_sentiment.csv
+--------------------------------------------------
+Mean of the IMDB data:  6.705
+Mean of the Reddit data:  6.03678611675267
+Data is not normal, conducting Mann-Whitney U Test
+The p-value of the test conducted is:  6.374705436458968e-21
+Succesfully rejected Ho. Mean of the sentimental analysis rating is not equal to the mean of the IMDB data
+
+
+./imdb/black_panther_imdb.csv and  ./sentiment_data/black_panther_sentiment.csv
+--------------------------------------------------
+Mean of the IMDB data:  6.811
+Mean of the Reddit data:  5.486585762623728
+Data is not normal, conducting Mann-Whitney U Test
+The p-value of the test conducted is:  1.4281299763853909e-52
+Succesfully rejected Ho. Mean of the sentimental analysis rating is not equal to the mean of the IMDB data
+
+
+./imdb/dune2_imdb.csv and  ./sentiment_data/dune2_sentiment.csv
+--------------------------------------------------
+Mean of the IMDB data:  8.889
+Mean of the Reddit data:  5.631830215034295
+Data is not normal, conducting Mann-Whitney U Test
+The p-value of the test conducted is:  1.4585539973926264e-243
+Succesfully rejected Ho. Mean of the sentimental analysis rating is not equal to the mean of the IMDB data
+
+
+./imdb/guardians_of_the_galaxy_imdb.csv and  ./sentiment_data/guardians_of_the_galaxy_sentiment.csv
+--------------------------------------------------
+Mean of the IMDB data:  7.984
+Mean of the Reddit data:  5.635655363146449
+Data is not normal, conducting Mann-Whitney U Test
+The p-value of the test conducted is:  1.240138835948102e-152
+Succesfully rejected Ho. Mean of the sentimental analysis rating is not equal to the mean of the IMDB data
+
+
+./imdb/hunger_games_imdb.csv and  ./sentiment_data/hunger_games_sentiment.csv
+--------------------------------------------------
+Mean of the IMDB data:  6.939
+Mean of the Reddit data:  5.568532915737165
+Data is not normal, conducting Mann-Whitney U Test
+The p-value of the test conducted is:  5.72492566082013e-56
+Succesfully rejected Ho. Mean of the sentimental analysis rating is not equal to the mean of the IMDB data
+
+
+./imdb/john_wick_4_imdb.csv and  ./sentiment_data/john_wick_4_sentiment.csv
+--------------------------------------------------
+Mean of the IMDB data:  7.984
+Mean of the Reddit data:  5.532136211928562
+Data is not normal, conducting Mann-Whitney U Test
+The p-value of the test conducted is:  2.4446889013174547e-149
+Succesfully rejected Ho. Mean of the sentimental analysis rating is not equal to the mean of the IMDB data
+
+
+./imdb/madame_web_imdb.csv and  ./sentiment_data/madame_web_sentiment.csv
+--------------------------------------------------
+Mean of the IMDB data:  3.919
+Mean of the Reddit data:  5.3442476883113725
+Data is not normal, conducting Mann-Whitney U Test
+The p-value of the test conducted is:  2.16520108673512e-48
+Succesfully rejected Ho. Mean of the sentimental analysis rating is not equal to the mean of the IMDB data
+
+
+./imdb/mission_impossible_imdb.csv and  ./sentiment_data/mission_impossible_sentiment.csv
+--------------------------------------------------
+Mean of the IMDB data:  7.888
+Mean of the Reddit data:  5.58518905857523
+Data is not normal, conducting Mann-Whitney U Test
+The p-value of the test conducted is:  3.8514160472516425e-157
+Succesfully rejected Ho. Mean of the sentimental analysis rating is not equal to the mean of the IMDB data
+
+
+./imdb/oppenheimer_imdb.csv and  ./sentiment_data/oppenheimer_sentiment.csv
+--------------------------------------------------
+Mean of the IMDB data:  8.537
+Mean of the Reddit data:  5.5865372938352795
+Data is not normal, conducting Mann-Whitney U Test
+The p-value of the test conducted is:  8.100585629707422e-206
+Succesfully rejected Ho. Mean of the sentimental analysis rating is not equal to the mean of the IMDB data
+
+
+./imdb/spider_verse_imdb.csv and  ./sentiment_data/spider_verse_sentiment.csv
+--------------------------------------------------
+Mean of the IMDB data:  8.564
+Mean of the Reddit data:  5.699439448172186
+Data is not normal, conducting Mann-Whitney U Test
+The p-value of the test conducted is:  1.0639542026586016e-199
+Succesfully rejected Ho. Mean of the sentimental analysis rating is not equal to the mean of the IMDB data
+
+
+./imdb/the_marvels_imdb.csv and  ./sentiment_data/the_marvels_sentiment.csv
+--------------------------------------------------
+Mean of the IMDB data:  5.393
+Mean of the Reddit data:  5.923191704076518
+Data is not normal, conducting Mann-Whitney U Test
+The p-value of the test conducted is:  0.00021367752648061188
+Succesfully rejected Ho. Mean of the sentimental analysis rating is not equal to the mean of the IMDB data
