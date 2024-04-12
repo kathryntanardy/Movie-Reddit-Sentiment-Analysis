@@ -59,31 +59,39 @@ def remove_curse_withinwords3(text):
     return cleaned_text
 
 
-filepath = ['./data_scraped/ant_man_comments.csv',
-            './data_scraped/barbie_comments.csv',
-            './data_scraped/black_panther_comments.csv',
-            './data_scraped/dune2_comments.csv',
-            './data_scraped/guardians_of_the_galaxy_comments.csv',
-            './data_scraped/hunger_games_comments.csv',
-            './data_scraped/john_wick_4_comments.csv',
-            './data_scraped/madame_web_comments.csv',
-            './data_scraped/mission_impossible_comments.csv',
-            './data_scraped/oppenheimer_comments.csv',
-            './data_scraped/spider_verse_comments.csv',
-            './data_scraped/the_marvels_comments.csv']
+# filepath = ['./data_scraped/ant_man_comments.csv',
+#             './data_scraped/barbie_comments.csv',
+#             './data_scraped/black_panther_comments.csv',
+#             './data_scraped/dune2_comments.csv',
+#             './data_scraped/guardians_of_the_galaxy_comments.csv',
+#             './data_scraped/hunger_games_comments.csv',
+#             './data_scraped/john_wick_4_comments.csv',
+#             './data_scraped/madame_web_comments.csv',
+#             './data_scraped/mission_impossible_comments.csv',
+#             './data_scraped/oppenheimer_comments.csv',
+#             './data_scraped/spider_verse_comments.csv',
+#             './data_scraped/the_marvels_comments.csv']
 
-outputs = ['ant_man_clean.csv',
-           'barbie_clean.csv',
-           'black_panther_clean.csv',
-           'dune2_clean.csv',
-           'guardians_of_the_galaxy_clean.csv',
-           'hunger_games_clean.csv',
-           'john_wick_4_clean.csv',
-           'madame_web_clean.csv',
-           'mission_impossible_clean.csv'
-           'oppenheimer_clean.csv',
-           'spider_verse_clean.csv',
-           'the_marvels_clean.csv']
+# outputs = ['ant_man_clean.csv',
+#            'barbie_clean.csv',
+#            'black_panther_clean.csv',
+#            'dune2_clean.csv',
+#            'guardians_of_the_galaxy_clean.csv',
+#            'hunger_games_clean.csv',
+#            'john_wick_4_clean.csv',
+#            'madame_web_clean.csv',
+#            'mission_impossible_clean.csv'
+#            'oppenheimer_clean.csv',
+#            'spider_verse_clean.csv',
+#            'the_marvels_clean.csv']
+
+filepath = [
+            './data_scraped/oppenheimer_comments.csv',
+]
+
+outputs = [
+           './cleaned_data/oppenheimer_clean.csv',
+]
 
 for filepath, output in zip(filepath, outputs):
     data = pd.read_csv(filepath)
@@ -109,4 +117,5 @@ for filepath, output in zip(filepath, outputs):
     # Export to csv
     data.to_csv(output, index=False)
 
+    print("SUCCESS")
 
