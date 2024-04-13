@@ -63,8 +63,8 @@ for url, output_file in zip(url_array, output_file_array):
 url_array2 = ["https://www.reddit.com/r/movies/comments/155ag1m/official_discussion_oppenheimer_spoilers/",
               "https://www.reddit.com/r/movies/comments/1b3jo9s/official_discussion_dune_part_two_spoilers/"]
 
-output_file_array2 = ["oppenheimer_comments.csv",
-                     "dune2_comments.csv"]
+output_file_array2 = ["./data_scraped/oppenheimer_comments.csv",
+                     "./data_scraped/dune2_comments.csv"]
 
 for url, output_file in zip(url_array2, output_file_array2):
     # Get data of the post from the link
@@ -95,7 +95,7 @@ for url, output_file in zip(url_array2, output_file_array2):
 # ------------------------------ Barbie ------------------------------
 
 url = "https://www.reddit.com/r/movies/comments/155afzv/official_discussion_barbie_spoilers/"
-comments_data = "barbie_comment.csv"
+output_file = "./data_scraped/barbie_comment.csv"
 
 # Get data of the post from the link
 post = reddit.submission(url=url)

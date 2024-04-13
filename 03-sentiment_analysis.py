@@ -164,7 +164,6 @@ data_output = ['./sentiment_data/ant_man_sentiment.csv',
                 './sentiment_data/the_marvels_sentiment.csv']
 
 
-
 for comments_file, data_file in zip(cleaned_data, data_output):
     print("\n")
     print(comments_file)
