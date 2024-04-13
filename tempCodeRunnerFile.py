@@ -1,1 +1,1 @@
-plt.savefig(plot)
+.

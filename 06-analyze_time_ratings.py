@@ -65,4 +65,4 @@ for reddit, plot, movie in zip(reddit_filepath, plot_name, movie_name):
     plt.ylabel('Sentiment Ratings')
     plt.title('Reddit Sentiment Ratings Over Time (' + movie + ')')
     plt.savefig(plot)
-    # plt.show()
+    plt.show()
