@@ -1,0 +1,12 @@
+The slope for the movie  Ant Man  is:  -2.2956011014138677e-07
+The slope for the movie  Barbie  is:  -2.0418361794806636e-07
+The slope for the movie  Black Panther  is:  -5.475596344672734e-07
+The slope for the movie  Dune 2  is:  -4.4685469638178247e-07
+The slope for the movie  Guardians of The Galaxy  is:  -1.0198000741343938e-07
+The slope for the movie  Hunger Games  is:  -1.167537843361213e-07
+The slope for the movie  John Wick 4  is:  -5.460778111230954e-07
+The slope for the movie  Madame Web  is:  5.049662101572978e-07
+The slope for the movie  Mission Impossible  is:  -2.5267611696935753e-07
+The slope for the movie  Oppenheimer  is:  -1.3761312112764418e-07
+The slope for the movie  Spiderverse  is:  -4.812016670791426e-07
+The slope for the movie  The Marvels  is:  6.021360212185011e-08

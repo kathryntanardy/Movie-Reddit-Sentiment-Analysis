@@ -54,9 +54,9 @@ for reddit, plot, movie in zip(reddit_filepath, plot_name, movie_name):
     end_date = start_date + pd.Timedelta(days=6)
     reddit_data = reddit_data[(reddit_data['date'] >= start_date) & (reddit_data['date'] <= end_date)]
 
-    
     fit = linregress(reddit_data.loc[:,'timestamp'], reddit_data.loc[:,'rating'])
     reddit_data['prediction'] = fit.slope*reddit_data.loc[:,'timestamp'] + fit.intercept
+    print("The slope for the movie ", movie, " is: ",fit.slope)
     
     plt.plot(reddit_data.loc[:,'date'], reddit_data.loc[:,'rating'], 'b.', alpha=0.5, label="Ratings")
     plt.plot(reddit_data.loc[:,'date'], reddit_data.loc[:,'prediction'], 'r-', linewidth=3)
@@ -64,5 +64,5 @@ for reddit, plot, movie in zip(reddit_filepath, plot_name, movie_name):
     plt.xlabel('Date (First Week of Release)')
     plt.ylabel('Sentiment Ratings')
     plt.title('Reddit Sentiment Ratings Over Time (' + movie + ')')
-    plt.savefig(plot)
+#     plt.savefig(plot)
     plt.show()
