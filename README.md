@@ -1,5 +1,4 @@
 # Movie Sentiment Analysis Rating 🎥🎬
-#### Spring 2024 Project (kta98 and vaa13)
 
 ### 1. How to run the code
 By order of execution:
